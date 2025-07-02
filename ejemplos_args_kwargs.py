@@ -117,7 +117,7 @@ def calculadora(operacion, *numeros, **opciones):
     if operacion == "suma":
         resultado = sum(numeros)
         if mostrar_proceso:
-            print(f"Sumando: {' + '.join(map(str, numeros))} = {resultado}")
+            print(f"Sumando: {' + '.join(map(str, numeros))} = {resultado}") # type: ignore
     elif operacion == "multiplicacion":
         resultado = 1
         for num in numeros:

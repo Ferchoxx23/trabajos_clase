@@ -210,24 +210,44 @@ def calculos(*args, operacion='suma'):
             
     return resultado
 
-def test_calculos():
+def test_calculos(parametro_normal):
     """
     Prueba de la funcion calculos con diferentes casos.
+    
+    Args:
+        parametro_normal: Debe ser de tipo Entero
     """
-    values = []
-    value = ''
-    while value.lower() != 'exit':
-        value = input("Ingrese un numero o 'exit' para salir: ")
-        if value.isdigit():
-            values.append(int(value))
-        else:
-            print(f'Por favor, el valor "{value}" no es valido, ingrese un valor valido.')
+    porDondePasamos = ''
+    try:
+        porDondePasamos = 'TRY'
+        numero = parametro_normal / 5
+        print(numero)
+    except Exception as e:
+        porDondePasamos = 'EXCEPT'
+        print(e)
+    finally:
+        print("Pasamos por alguna ", porDondePasamos)
+    
+    if type(parametro_normal) == int:
+        return print("nombre es un entero")
+    if type(parametro_normal) == str:
+        return print("Nombre es un String")
+    else:
+        values = []
+        value = ''
+        while value.lower() != 'exit':
+            value = input("Ingrese un numero o 'exit' para salir: ")
+            if value.isdigit():
+                values.append(int(value))
+            else:
+                print(f'Por favor, el valor "{value}" no es valido, ingrese un valor valido.')
 
-    print(f"Suma es: {calculos(*values)}")
-    print("Resta es: ", calculos(*values, operacion='resta'))
+        print(f"Suma es: {calculos(*values)}")
+        print("Resta es: ", calculos(*values, operacion='resta'))
 
-#test_calculos()
+test_calculos(["50"])
 
+# %%
 funcion = "(2 + 3) * 4"
 def evalua_funcion(pfuncion):
     """
